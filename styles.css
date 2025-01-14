@@ -420,78 +420,96 @@ body {
 }
 
 /*FAQ*/
-
 .faq-area {
-  padding: 3rem 1.5rem;
-  background: #f9f9f9;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom right, #f0f8ff, #ffffff);
+  margin: auto;
 }
 
 .section-header.style-3 .sec-text .title {
-  font-size: 2.8rem;
-  color: #333;
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
   text-align: center;
+  font-weight: bold;
 }
 
 .section-header.style-3 .sec-text .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #555;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .faq-accordion-list {
   list-style: none;
   padding: 0;
-  margin-left: 19rem;
-  width: 60%;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.faq-card {
+  background: #ffffff;
+  border: 2px solid #dcdcdc;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .faq-accordion-list-title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
-  padding: 1rem 1.5rem;
-  background: #fff;
-  color: #333;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.faq-accordion-list-title:hover {
-  background: #f0f8ff;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 .faq-accordion-list-title i {
-  font-size: 1.2rem;
-  margin-left: auto;
+  font-size: 1.4rem;
   transition: transform 0.3s ease;
 }
 
 .faq-accordion-wrap {
   display: none;
   padding: 1.5rem;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 1rem;
-  animation: fadeIn 0.3s ease-in-out;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-accordion-list-title.active i {
+  transform: rotate(45deg);
 }
 
 .faq-flex-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .faq-accordion-list-content {
   flex: 1;
+  color: #333;
+}
+
+.faq-accordion-list-paragraph {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.faq-accordion-list-item li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
 .faq-accordion-list-image {
@@ -501,40 +519,62 @@ body {
 
 .faq-accordion-thumb img {
   width: 100%;
-  max-width: 100px;
-  border-radius: 8px;
-}
-.service-image {
-  height: 10rem;
-  width: 15rem;
-}
-
-.faq-accordion-list-title.active i {
-  transform: rotate(45deg); /* Changes direction */
+  max-width: 200px;
+  border: 5px solid #dcdcdc;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.faq-accordion-thumb img:hover {
+  border-color: var(--primary-color);
+  transform: scale(1.05);
 }
 
 /* Responsive Styles */
+@media (max-width: 1024px) {
+  .faq-card {
+    padding: 1.2rem;
+  }
+
+  .faq-accordion-list-title {
+    font-size: 1.4rem;
+  }
+
+  .faq-accordion-wrap {
+    padding: 1.2rem;
+  }
+
+  .faq-accordion-thumb img {
+    max-width: 180px;
+  }
+}
+
 @media (max-width: 768px) {
   .faq-flex-container {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
-  .faq-accordion-list {
-    margin: auto;
+
+  .faq-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    padding: 2rem;
+    margin-left: 4rem;
   }
+
   .faq-accordion-list-title {
     font-size: 1.3rem;
+  }
+
+  .faq-card {
     padding: 1rem;
+    margin: 1rem 0;
   }
 
   .faq-accordion-wrap {
@@ -546,6 +586,31 @@ body {
   }
 }
 
+@media (max-width: 480px) {
+  .section-header.style-3 .sec-text .title {
+    font-size: 2rem;
+  }
+
+  .section-header.style-3 .sec-text .subtitle {
+    font-size: 1rem;
+  }
+
+  .faq-accordion-list-title {
+    font-size: 1.2rem;
+  }
+
+  .faq-card {
+    padding: 0.8rem;
+  }
+
+  .faq-accordion-thumb img {
+    max-width: 120px;
+  }
+
+  .faq-area {
+    margin-left: 4rem;
+  }
+}
 /* Products Section */
 
 /* General Section Styling */
